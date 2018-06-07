@@ -1,0 +1,45 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+    <%= link_to "Meh", root_path, class: "navbar-brand" %>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav nav ml-auto">
+        <li class="nav-item active">
+          <% if (!user_signed_in?) %>
+          <li class="nav-item">
+            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %>
+          </li>
+          <% else %>
+          <li class="nav-item">
+            <%= image_tag current_user.avatar, class: "user_avi_small rounded-circle" %>
+          </li>
+
+        <div class="nav navbar-nav">
+          <ul class="nav navbar-nav dropdown pr-5">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.first_name %></a>
+            <div class="dropdown-menu dropdown-menu-right">
+              <a class="dropdown-item" href="#">Manage Listing</a>
+              <a class="dropdown-item" href="#">List Space</a>
+              <a class="dropdown-item" href="#">Reservations</a>
+              <a class="dropdown-item" href="#">Your Trips</a>
+              <div class="dropdown-divider"></div>
+              <%= link_to "Edit Profile", edit_user_registration_path, class: "dropdown-item" %>
+              <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+            </div>
+          </ul>
+        </div>
+
+        <li class="nav-item">
+          <p>
+
+          </p>
+        </li>
+          <% end %>
+        </li>
+      </ul>
+        </div>
+  </nav>
