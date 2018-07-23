@@ -4,3 +4,29 @@
   width: 50px;
   padding-top: 3px;
 }
+
+#navvy {
+  background-color: #CC444B;
+}
+
+body {
+  background-color: #E8DCBE;
+}
+
+#pet_sidebar{
+  li{
+    list-style: none;
+  }
+  li a{
+    color: #000;
+    font-size: 115%;
+  }
+}
+
+.pet_avvy{
+  width: 300px;
+}
+
+.pet_gallery {
+  width: 400px;
+}

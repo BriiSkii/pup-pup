@@ -8,4 +8,5 @@ class User < ApplicationRecord
   validates :last_name, presence: true, length: { maximum: 25 }
 
   has_one_attached :avatar
+  has_many :pets
 end

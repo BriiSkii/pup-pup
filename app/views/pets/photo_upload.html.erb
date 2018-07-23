@@ -1,0 +1,46 @@
+<div class="row">
+  <div class="col-md-3">
+    <%= render 'pet_menu' %>
+  </div>
+  <div class="col-md-9">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3>Your Dog's Photos</h3>
+      </div>
+      <br />
+      <div class="panel-body">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-offset-3 col-md-6">
+              <%= form_for @pet, html: {multipart: true} do |f| %>
+              <div class="form-group">
+                <%= f.file_field :images,  multiple: true, class: "form-control" %>
+              </div>
+
+              <br />
+              <div>
+                <%= f.submit "Upload", class: "btn btn-primary" %>
+              </div>
+            <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-8">
+      <ul>
+        <% @pet.images.each do |image| %>
+        <li>
+      <%= image_tag image, class: "pet_gallery" %>
+      <%= link_to 'Remove', delete_image_attachment_pet_url(@pet.images[image]),
+                method: :delete,
+                data: { confirm: 'Are you sure?' } %>
+      <% end %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
